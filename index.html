@@ -9,8 +9,38 @@
 <body>
    <div id ="main">
         <h1 v-if="conectado">Estas conectado</h1>
-        <p v-if="edad >= 18">Eres mayor de 18</p>
-        <p v-else>No puedes entrar</p>
+        <div v-if="edad >= 18">Eres mayor de 18
+       
+        <h2>Renderizado de listas</h1>
+        <ul>
+            <li v-for="item in lista">{{item}}</li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="item in listaPersonas">{{item.nombre}} - {{item.edad}}</li>
+        </ul>
+        <p>{{lista}}</p>
+    </div>
+        <div v-else>
+            <p>No puedes entrar</p>
+
+            <h2>Listado de acciones</h2>
+            <hr>
+                <h3>Agregar tarea</h3>
+                <input type ="text" placeholder="tarea nueva" v-model="tarea"/>
+                <button v-on:click="agregarTarea">Agregar tarea</button>
+
+            <hr>
+            <ul>
+                <li v-for="tarea in tareas">{{tarea.titulo}}</li>
+            </ul>
+            <hr>
+                <h3>Tareas completadas</h3>
+                <ul>
+                    <li v-for="completada in mostrarCompletadas">{{completada.titulo}}</li>
+                </ul>
+                
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="codigo.js"></script>
